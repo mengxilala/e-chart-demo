@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>e-chart响应式实现</title>
+</head>
+<body>
+    <div id="main" style="height:400px"></div>
+    <script src="js/echarts.min.js"></script>
+
+    <script>
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+            baseOption: {
+                title: {
+                    text: '模拟商店一周销售情况',
+                    subtext: '虚拟数据'
+                },
+                legend: {
+                    data: ['购买金额', '销售金额']
+                },
+                xAxis: {
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日','周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                },
+                yAxis: {
+
+                },
+                tooltip: {
+                    show: true,
+                    formatter: '系列名:{a}<br/>类目:{b}<br/>数值:{c}<br/>'
+                },
+                series: [{
+                    name: '购买金额',
+                    type: 'bar',
+                    data: [200, 312, 431, 241, 175, 275, 369,200, 312, 431, 241, 175, 275, 369],
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: '最大值' },
+                            { type: 'min', name: '最小值' },
+                        ]
+                    },
+                    markLine: {
+                        data: [
+                            {
+                                type: 'average', name: '平均值', itemStyle: {
+                                    normal: {
+                                        color: 'green'
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                }, {
+                    name: '销售金额',
+                    type: 'line',
+                    data: [321, 432, 543, 376, 286, 298, 400],
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: '最大值' },
+                            { type: 'min', name: '最小值' },
+                        ]
+                    },
+                    markLine: {
+                        data: [
+                            {
+                                type: 'average', name: '平均值', itemStyle: {
+                                    normal: {
+                                        color: 'blue'
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }]
+            },
+            media: [
+                {
+                    //小于1000像素时响应
+                    query: {
+                        maxWidth: 1000
+                    },
+                    option: {
+                        title: {
+                            show: true,
+                            text: '测试一下'
+                        }
+                    }
+                },
+                {
+                    //小于1000像素时响应
+                    query: {
+                        minWidth: 1000
+                    },
+                    option: {
+                        title: {
+                            show: true,
+                            text: '模拟商店一周销售情况'
+                        }
+                    }
+                },
+            ]
+        };
+        //每次窗口大小改变的时候都会触发onresize事件，这个时候我们将echarts对象的尺寸赋值给窗口的大小这个属性，从而实现图表对象与窗口对象的尺寸一致的情况
+        window.onresize = myChart.resize;
+        myChart.setOption(option);
+
+
+    </script>
+</body>
+</html>

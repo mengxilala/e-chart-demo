@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用css3创建平行四边形</title>
+    <style>
+        .city {
+            display: inline-block;
+            padding: 5px 20px;
+            border: 1px solid #44a5fc;
+            color: #333;
+            /* transform:skew()/skewX()/skewY()/skewZ()/skew3d();（元素的倾斜） */
+            transform: skew(-20deg);
+        }
+
+        .city div{
+            transform: skew(20deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="city">上海</div>   这样导致文字也跟着倾斜了 所以给文字加一个内层的盒子 -->
+
+
+    <div class="city">
+        <div>上海</div>
+    </div>
+</body>
+</html>

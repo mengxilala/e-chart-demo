@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3</title>
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: #f37cae;
+            border: 1px solid #ee4e91;
+            border-radius: 50%;
+            /* 主要是动画 */
+            animation: rotate 1s linear infinite;
+        }
+
+        /* 主要是动画 */
+
+        @keyframes rotate {
+            0% {
+                width: 100px;
+            }
+            25% {
+                width: 51px;
+            }
+            50% {
+                width: 2px;
+            }
+            75% {
+                width: 51px;
+            }
+            100% {
+                width: 100px;
+            }
+        }
+
+        .center {
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 使用CSS3设计一个立起的圆形，并围绕自身中轴线做360度持续旋转 -->
+    <div class="circle center"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css实现截断字符串</title>
+    <style>
+
+        /* 单行文本截断，以省略号显示 */
+    /* .text{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } */
+
+        /* 多行文本截断，以省略号显示 */
+    .text{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    </style>
+</head>
+<body>
+    <div class="text">
+        要注意的是：这个属性是IE专用的！不过，却非只有IE可用。该标签虽然没有被公开支持采纳，但却被很多浏览器的私有属性所包含。
+        text-overflow单独使用是不起作用的，必须有white-space:nowrap;overflow:hidden;这两句的配合方可。
+        前一句的作用是强制在同一行内显示所有文本，直到文本结束或者遭遇br对象。
+        不难看出，用text-overflow的最佳场所不是文章的行文，而是用以单行显示的标题或摘要的列表。
+    </div>
+</body>
+</html>
